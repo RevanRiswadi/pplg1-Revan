@@ -114,7 +114,7 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-                    
+
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -144,9 +144,9 @@
                         </li>
 
                         <!-- Nav Item - Alerts -->
-                        
 
-                        
+
+
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -161,7 +161,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -181,95 +181,104 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Halaman Siswa</h1>
                     <br>
-                    <div class = "row">
-                    
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <a href="tambahsiswa.php" class="btn btn-primary">Tambah Data</a>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama Siswa</th>
-                                            <th>NISN</th>
-                                            <th>Email</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Wanda Kurniawan</td>
-                                            <td>3202160</td>
-                                            <td>wanda@gmail.com</td>
-                                            <td>Pria</td>
-                                            <td>
-                                                <a href="editsiswa.php" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                                            </td>
-                                        
-                                    </tbody>
-                                </table>
+                    <div class="row">
+
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <a href="tambahsiswa.php" class="btn btn-primary">Tambah Data</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Siswa</th>
+                                                <th>NISN</th>
+                                                <th>Email</th>
+                                                <th>Jenis Kelamin</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <?php
+                                        include '../db.php';
+                                        $i = 1;
+                                        $data = mysqli_query($koneksi, "SELECT * FROM siswa");
+                                        while ($d = mysqli_fetch_array($data)) {
+
+                                        ?>
+
+                                            <tr>
+                                                <td><?php echo $i++ ?></td>
+                                                <td><?php echo $d['nama']; ?></td>
+                                                <td><?php echo $d['nisn']; ?></td>
+                                                <td><?php echo $d['email']; ?></td>
+                                                <td><?php echo $d['jk']; ?></td>
+
+                                                <td>
+                                                    <a href="editsiswa.php" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                                </td>
+                                            <?php } ?>
+                                            </tr>
+                                            </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
+
+
+
                     </div>
-
-
+                    <!-- /.container-fluid -->
 
                 </div>
-                <!-- /.container-fluid -->
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+
+                <!-- End of Footer -->
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            
-            <!-- End of Footer -->
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="../js/sb-admin-2.min.js"></script>
 
 </body>
 
